@@ -21,11 +21,11 @@ public class Usuario implements Serializable {
     private String apellidos;
 
     @Column(nullable = false,unique = true)
-    @NotNull
+    @NotNull(message = "La cedula no puede ser nulo")
     private String cedula;
 
     @Column(nullable = false,unique = true)
-    @NotNull
+    @NotNull(message = "El correo no puede ser nulo")
     private String correo;
 
     @Size(min = 16)
