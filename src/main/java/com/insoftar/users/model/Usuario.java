@@ -1,9 +1,9 @@
 package com.insoftar.users.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.io.Serializable;
 
 @Entity
@@ -26,6 +26,7 @@ public class Usuario implements Serializable {
 
     @Column(nullable = false,unique = true)
     @NotNull(message = "El correo no puede ser nulo")
+    @Email(message = "El email debe ser de tipo email")
     private String correo;
 
     @Size(min = 16)
