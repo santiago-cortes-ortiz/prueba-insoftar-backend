@@ -1,6 +1,7 @@
 package com.insoftar.users.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.format.annotation.NumberFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
@@ -15,9 +16,11 @@ public class Usuario implements Serializable {
     private Long id;
 
     @NotBlank
+    @NotNull(message = "Los nombres no deben ser nulo")
     private String nombres;
 
     @NotBlank
+    @NotNull(message = "Los apellidos no deben ser nulo")
     private String apellidos;
 
     @Column(nullable = false,unique = true)
@@ -29,7 +32,7 @@ public class Usuario implements Serializable {
     @Email(message = "El email debe ser de tipo email")
     private String correo;
 
-    @Size(min = 16)
+    @Size(min = 10, message = "El telefono debe contener minimo 10 caracteres")
     private String telefono;
 
     public Usuario() {
