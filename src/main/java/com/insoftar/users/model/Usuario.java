@@ -6,7 +6,6 @@ import org.springframework.format.annotation.NumberFormat;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.io.Serializable;
-
 @Entity
 @Table(name = "usuarios")
 public class Usuario implements Serializable {
@@ -25,6 +24,7 @@ public class Usuario implements Serializable {
 
     @Column(nullable = false,unique = true)
     @NotNull(message = "La cedula no puede ser nulo")
+    @Pattern(regexp = "[0-9]*", message = "La cedula debe contener numeros")
     private String cedula;
 
     @Column(nullable = false,unique = true)
@@ -33,6 +33,7 @@ public class Usuario implements Serializable {
     private String correo;
 
     @Size(min = 10, message = "El telefono debe contener minimo 10 caracteres")
+    @Pattern(regexp = "[0-9]*", message = "El telefono debe contener numeros")
     private String telefono;
 
     public Usuario() {

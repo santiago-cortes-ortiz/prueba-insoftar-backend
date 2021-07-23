@@ -27,7 +27,7 @@ public class ControladorUsuario {
 
     @PutMapping
     @ResponseBody
-    public ResponseEntity<Usuario> actualizarUsuario(@RequestBody Usuario usuarioModificado){
+    public ResponseEntity<Usuario> actualizarUsuario(@Valid @RequestBody Usuario usuarioModificado){
         return new ResponseEntity<>(servicioUsuario.actualizarUsuario(usuarioModificado), HttpStatus.OK);
     }
 
