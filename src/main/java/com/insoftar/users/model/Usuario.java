@@ -14,11 +14,11 @@ public class Usuario implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
+    @NotBlank(message = "El nombre no deberia estar en blanco")
     @NotNull(message = "Los nombres no deben ser nulo")
     private String nombres;
 
-    @NotBlank
+    @NotBlank(message = "El apellido no deberia estar en blanco")
     @NotNull(message = "Los apellidos no deben ser nulo")
     private String apellidos;
 
